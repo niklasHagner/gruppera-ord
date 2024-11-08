@@ -81,6 +81,9 @@ function checkSelection() {
   const allSameGroup = selectedCards.every(card => card.dataset.group === group);
 
   if (allSameGroup) {
+      const correctSet = document.createElement('div');
+      correctSet.classList.add('correct-set');
+
       const themeName = document.createElement('div');
       themeName.classList.add('theme');
       themeName.textContent = group.charAt(0).toUpperCase() + group.slice(1);
@@ -91,8 +94,9 @@ function checkSelection() {
       itemsText.classList.add('items-list');
       itemsText.textContent = itemsList;
 
-      correctAnswersContainer.appendChild(themeName);
-      correctAnswersContainer.appendChild(itemsText);
+      correctSet.appendChild(themeName);
+      correctSet.appendChild(itemsText);
+      correctAnswersContainer.appendChild(correctSet);
 
       selectedCards.forEach(card => {
           card.classList.add('resolved');
@@ -100,11 +104,11 @@ function checkSelection() {
           card.remove();
       });
 
-      message.textContent = 'Correct! You found a group!';
+      message.textContent = 'Rätt! Du hittade en gruppering av 4 ord!';
       reshuffleRemainingCards();
   } else {
       selectedCards.forEach(card => card.classList.remove('selected'));
-      message.textContent = 'Incorrect 🙁. Try again';
+      message.textContent = 'Fel 🙁. Prova igen';
       setTimeout(() => {
           message.textContent = '';
       }, 3000);
