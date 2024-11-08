@@ -81,9 +81,6 @@ function checkSelection() {
   const allSameGroup = selectedCards.every(card => card.dataset.group === group);
 
   if (allSameGroup) {
-      const correctSet = document.createElement('div');
-      correctSet.classList.add('correct-set');
-
       const themeName = document.createElement('div');
       themeName.classList.add('theme');
       themeName.textContent = group.charAt(0).toUpperCase() + group.slice(1);
@@ -94,9 +91,8 @@ function checkSelection() {
       itemsText.classList.add('items-list');
       itemsText.textContent = itemsList;
 
-      correctSet.appendChild(themeName);
-      correctSet.appendChild(itemsText);
-      correctAnswersContainer.appendChild(correctSet);
+      correctAnswersContainer.appendChild(themeName);
+      correctAnswersContainer.appendChild(itemsText);
 
       selectedCards.forEach(card => {
           card.classList.add('resolved');
@@ -104,13 +100,19 @@ function checkSelection() {
           card.remove();
       });
 
-      message.textContent = 'Rätt! Du hittade en gruppering av 4 ord!';
+      message.textContent = 'Snyggt! 👍 Du hittade en gruppering av 4 ord!';
+      message.classList.add('message-show');
+      setTimeout(() => {
+          message.classList.remove('message-show');
+      }, 3000);
+
       reshuffleRemainingCards();
   } else {
       selectedCards.forEach(card => card.classList.remove('selected'));
       message.textContent = 'Fel 🙁. Prova igen';
+      message.classList.add('message-show');
       setTimeout(() => {
-          message.textContent = '';
+          message.classList.remove('message-show');
       }, 3000);
   }
 

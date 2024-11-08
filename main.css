@@ -8,7 +8,6 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: #e0f7e0; /* Spearmint green background */
-
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -54,6 +53,7 @@ h1 {
   cursor: pointer;
   user-select: none;
   color: #333;
+  font-weight: bold;
   text-align: center;
   transition: transform 0.2s, background 0.2s, top 0.2s, left 0.2s;
 }
@@ -78,6 +78,8 @@ h1 {
   font-size: 1.2em;
   color: #333;
   min-height: 1.5em; /* Reserve space for the message */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 button {
@@ -99,19 +101,19 @@ button:hover {
 
 .correct-answers {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   /* Must be as wide as the grid-container */
   width: calc((var(--card-width) * 4) + 40px);
   height: var(--card-width);
-}
 
-.theme {
-  grid-column: span 4;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  .theme {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 .items-list {
@@ -119,4 +121,27 @@ button:hover {
   text-align: center;
   font-size: 1em;
   color: #333;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.message-show {
+  animation: fadeInOut 3s ease-in-out;
 }
