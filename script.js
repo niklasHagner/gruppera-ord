@@ -1,33 +1,33 @@
 const games = [
   {
-      emotions: ["Glad", "Ledsen", "Arg", "Irriterad"],
-      colors: ["Röd", "Blå", "Grön", "Gul"],
-      animals: ["Hund", "Katt", "Fågel", "Fisk"],
-      fruits: ["Äpple", "Banan", "Apelsin", "Druva"]
+      känslor: ["Glad", "Ledsen", "Arg", "Irriterad"],
+      färger: ["Röd", "Blå", "Grön", "Gul"],
+      djur: ["Hund", "Katt", "Fågel", "Fisk"],
+      frukter: ["Äpple", "Banan", "Apelsin", "Druva"]
   },
   {
-      emotions: ["Lycklig", "Arg", "Lugn", "Frustrerad"],
-      colors: ["Lila", "Cyan", "Magenta", "Lime"],
-      animals: ["Häst", "Ko", "Får", "Get"],
-      fruits: ["Mango", "Persika", "Ananas", "Jordgubbe"]
+      känslor: ["Lycklig", "Arg", "Lugn", "Frustrerad"],
+      färger: ["Lila", "Cyan", "Magenta", "Lime"],
+      djur: ["Häst", "Ko", "Får", "Get"],
+      frukter: ["Mango", "Persika", "Ananas", "Jordgubbe"]
   },
   {
-    buildings: ["Hus", "Skyskrapa", "Stuga", "Slott"],
+    byggnader: ["Hus", "Skyskrapa", "Stuga", "Slott"],
     media: ["Bok", "Film", "Tidning", "Podcast"],
-    jobs: ["Läkare", "Ingenjör", "Lärare", "Brandman"],
-    sports: ["Fotboll", "Basket", "Tennis", "Simning"]
+    jobb: ["Läkare", "Ingenjör", "Lärare", "Brandman"],
+    sporter: ["Fotboll", "Basket", "Tennis", "Simning"]
   },
   {
-    vehicles: ["Bil", "Cykel", "Buss", "Tåg"],
-    instruments: ["Gitarr", "Piano", "Trummor", "Fiol"],
-    furniture: ["Soffa", "Stol", "Bord", "Säng"],
-    clothing: ["Tröja", "Byxor", "Jacka", "Skor"],
+    fordon: ["Bil", "Cykel", "Buss", "Tåg"],
+    instrument: ["Gitarr", "Piano", "Trummor", "Fiol"],
+    möbler: ["Soffa", "Stol", "Bord", "Säng"],
+    kläder: ["Tröja", "Byxor", "Jacka", "Skor"],
   },
   {
-    materials: ["Sten", "Järn", "Stål", "Glas" ],
-    spices: ["Dill", "Persilja", "Gräslök", "Koriander" ],
-    vegetables: ["Potatis", "Kålrot", "Morot", "Palsternacka"],
-    beverages: ["Kaffe", "Te", "Juice", "Vatten"]
+    material: ["Sten", "Järn", "Stål", "Glas" ],
+    kryddor: ["Dill", "Persilja", "Gräslök", "Koriander" ],
+    grönsaker: ["Potatis", "Kålrot", "Morot", "Palsternacka"],
+    drycker: ["Kaffe", "Te", "Juice", "Vatten"]
   }
 ];
 
