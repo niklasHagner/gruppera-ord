@@ -37,6 +37,9 @@ const message = document.getElementById('message');
 const newGameButton = document.getElementById('new-game');
 const shuffleButton = document.getElementById('shuffle-cards');
 const correctAnswersContainer = document.getElementById('correct-answers');
+const splashScreen = document.getElementById('splash-screen');
+splashScreen.addEventListener("click", hideSplashScreen);
+const confettiContainer = document.getElementById('confetti-container');
 
 newGameButton.addEventListener('click', startNewGame);
 shuffleButton.addEventListener('click', shuffleExistingCards);
@@ -48,6 +51,7 @@ function startNewGame() {
   gridContainer.innerHTML = '';
   correctAnswersContainer.innerHTML = '';
   message.textContent = '';
+  hideSplashScreen();
 
   words.forEach(({ word, group }) => {
       const card = document.createElement('div');
@@ -100,13 +104,17 @@ function checkSelection() {
           card.remove();
       });
 
-      message.textContent = 'Snyggt! 👍 Du hittade en gruppering av 4 ord!';
+      message.textContent = 'Rätt! Du hittade en gruppering av 4 ord!';
       message.classList.add('message-show');
       setTimeout(() => {
           message.classList.remove('message-show');
       }, 3000);
 
-      reshuffleRemainingCards();
+      if (gridContainer.children.length === 0) {
+          showSplashScreen();
+      } else {
+          reshuffleRemainingCards();
+      }
   } else {
       selectedCards.forEach(card => card.classList.remove('selected'));
       message.textContent = 'Fel 🙁. Prova igen';
@@ -152,6 +160,26 @@ function shuffleExistingCards() {
           card.style.transform = 'scale(1)';
       }, 200);
   });
+}
+
+function showSplashScreen() {
+  splashScreen.classList.add('show');
+  generateConfetti();
+}
+
+function hideSplashScreen() {
+  splashScreen.classList.remove('show');
+  confettiContainer.innerHTML = '';
+}
+
+function generateConfetti() {
+  for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confettiContainer.appendChild(confetti);
+  }
 }
 
 // Start the first game

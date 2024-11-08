@@ -42,8 +42,7 @@ h1 {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  /*visually center*/
-  padding-left: 7px;
+  justify-content: center; /* Center the grid items */
 }
 
 .card {
@@ -68,7 +67,7 @@ h1 {
 }
 
 .card.selected {
-  background: linear-gradient(145deg, #e8e4db, #f9f6f1); /* Slightly darker bone white */
+  background: #caeaca;
 }
 
 .card.resolved {
@@ -125,6 +124,49 @@ button {
 
 button:hover {
   background-color: #555;
+}
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.splash-screen.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.splash-content {
+  text-align: center;
+  color: white;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0;
+  animation: confetti 3s linear infinite;
 }
 
 @media (max-width: 600px) {
