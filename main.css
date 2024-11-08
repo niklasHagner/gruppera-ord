@@ -37,8 +37,13 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, var(--card-width));
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
   grid-gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  /*visually center*/
+  padding-left: 7px;
 }
 
 .card {
@@ -64,13 +69,36 @@ h1 {
 
 .card.selected {
   background: linear-gradient(145deg, #e8e4db, #f9f6f1); /* Slightly darker bone white */
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.5); /* Subtle inset shadow */
 }
 
 .card.resolved {
   background: linear-gradient(145deg, #90ee90, #76c776); /* Green for resolved cards */
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.5); /* Subtle inset shadow */
   cursor: default;
+}
+
+.correct-answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.theme {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.items-list {
+  grid-column: span 4;
+  text-align: center;
+  font-size: 1em;
+  color: #333;
 }
 
 #message {
@@ -99,49 +127,21 @@ button:hover {
   background-color: #555;
 }
 
-.correct-answers {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* Must be as wide as the grid-container */
-  width: calc((var(--card-width) * 4) + 40px);
-  height: var(--card-width);
+@media (max-width: 600px) {
+  :root {
+    --card-width: 80px;
+  }
 
-  .theme {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  h1 {
+    font-size: 1.5em;
   }
-}
 
-.items-list {
-  grid-column: span 4;
-  text-align: center;
-  font-size: 1em;
-  color: #333;
-}
+  #message {
+    font-size: 1em;
+  }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
+  button {
+    font-size: 0.9em;
+    padding: 8px 16px;
   }
-  10% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-.message-show {
-  animation: fadeInOut 3s ease-in-out;
 }

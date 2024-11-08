@@ -26,7 +26,7 @@ const games = [
   {
     material: ["Sten", "Järn", "Stål", "Glas" ],
     kryddor: ["Dill", "Persilja", "Gräslök", "Koriander" ],
-    grönsaker: ["Potatis", "Kålrot", "Morot", "Palsternacka"],
+    rotfrukter: ["Potatis", "Kålrot", "Morot", "Rödbeta"],
     drycker: ["Kaffe", "Te", "Juice", "Vatten"]
   }
 ];
