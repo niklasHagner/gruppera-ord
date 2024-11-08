@@ -6,6 +6,11 @@
     <title>Gruppera Ord</title>
     <link rel="stylesheet" href="main.css">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -16,12 +21,18 @@
     <div class="correct-answers" id="correct-answers"></div>
     <div class="grid-container" id="grid-container"></div>
     <div id="message"></div>
-    <button id="new-game">Nytt spel</button>
+    <button id="new-game">Spela igen</button>
     <button id="shuffle-cards">Blanda om</button>
   </main>
   <footer>
     Ihophackat av Hagge
   </footer>
+  <div id="splash-screen" class="splash-screen">
+    <div class="splash-content">
+      <h1>Grattis!</h1>
+      <div id="confetti-container"></div>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
