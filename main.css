@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #e0f7e0; /* Spearmint green background */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-gap: 10px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #fdfbf8, #f2f1f0); /* Bone white gradient */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(255, 255, 255, 0.5); /* Subtle shadow effect */
+  cursor: pointer;
+  user-select: none;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s, top 0.2s, left 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card.selected {
+  background: linear-gradient(145deg, #e8e4db, #f9f6f1); /* Slightly darker bone white */
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.5); /* Subtle inset shadow */
+}
+
+.card.resolved {
+  background: linear-gradient(145deg, #90ee90, #76c776); /* Green for resolved cards */
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.5); /* Subtle inset shadow */
+  cursor: default;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #333;
+  min-height: 1.5em; /* Reserve space for the message */
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.correct-answers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.theme {
+  grid-column: span 4;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.items-list {
+  grid-column: span 4;
+  text-align: center;
+  font-size: 1em;
+  color: #333;
+}
