@@ -1,36 +1,3 @@
-const games = [
-  {
-      känslor: ["Glad", "Ledsen", "Arg", "Irriterad"],
-      färger: ["Röd", "Blå", "Grön", "Gul"],
-      djur: ["Hund", "Katt", "Fågel", "Fisk"],
-      frukter: ["Äpple", "Banan", "Apelsin", "Druva"]
-  },
-  {
-      känslor: ["Lycklig", "Arg", "Lugn", "Frustrerad"],
-      färger: ["Lila", "Cyan", "Magenta", "Lime"],
-      djur: ["Häst", "Ko", "Får", "Get"],
-      frukter: ["Mango", "Persika", "Ananas", "Jordgubbe"]
-  },
-  {
-    byggnader: ["Hus", "Skyskrapa", "Stuga", "Slott"],
-    media: ["Bok", "Film", "Tidning", "Podcast"],
-    jobb: ["Läkare", "Ingenjör", "Lärare", "Brandman"],
-    sporter: ["Fotboll", "Basket", "Tennis", "Simning"]
-  },
-  {
-    fordon: ["Bil", "Cykel", "Buss", "Tåg"],
-    instrument: ["Gitarr", "Piano", "Trummor", "Fiol"],
-    möbler: ["Soffa", "Stol", "Bord", "Säng"],
-    kläder: ["Tröja", "Byxor", "Jacka", "Skor"],
-  },
-  {
-    material: ["Sten", "Järn", "Stål", "Glas" ],
-    kryddor: ["Dill", "Persilja", "Gräslök", "Koriander" ],
-    rotfrukter: ["Potatis", "Kålrot", "Morot", "Rödbeta"],
-    drycker: ["Kaffe", "Te", "Juice", "Vatten"]
-  }
-];
-
 let selectedCards = [];
 const gridContainer = document.getElementById('grid-container');
 const message = document.getElementById('message');
@@ -45,7 +12,7 @@ newGameButton.addEventListener('click', startNewGame);
 shuffleButton.addEventListener('click', shuffleExistingCards);
 
 function startNewGame() {
-  const game = games[Math.floor(Math.random() * games.length)];
+  const game = window.games[Math.floor(Math.random() * window.games.length)];
   const words = Object.entries(game).flatMap(([group, words]) => words.map(word => ({ word, group })));
   shuffle(words);
   gridContainer.innerHTML = '';
