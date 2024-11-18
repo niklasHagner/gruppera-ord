@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gruppera Ord</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="toast.css">
+
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -17,7 +19,9 @@
 </head>
 <body>
   <main>
-    <h1>Gruppera ord</h1>
+    <h1>Gruppera 4 ord</h1>
+
+    <div class="toast" id="toast-top"></div>
     <div class="correct-answers" id="correct-answers"></div>
     <div class="grid-container" id="grid-container"></div>
     <div id="message"></div>
@@ -25,7 +29,7 @@
     <button id="shuffle-cards">Blanda om</button>
   </main>
   <footer>
-    Ihophackat av Hagge
+    Ihophackat av Hagge 🐝
   </footer>
   <div id="splash-screen" class="splash-screen">
     <div class="splash-content">
@@ -35,5 +39,6 @@
   </div>
   <script src="games.js"></script>
   <script src="main.js"></script>
+  <script src="toast.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+.toast {
+  height: 20px;
+  position:fixed;
+  left: 10px;
+  background-color:rgba(0,0,0,0.8);
+  color:#fff;
+  padding:16px;
+  border-radius:4px;
+  text-align:center;
+  z-index:1;
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+  visibility:hidden;
+  opacity:0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#toast-bottom {
+  bottom:0;
+
+  &.show{
+    visibility:visible;
+    animation:fadeInOutFromBottom 2s;
+  }
+  
+}
+
+#toast-top {
+  top:0;
+
+  &.show{
+    visibility:visible;
+    animation:fadeInOutTop 2s;
+  }
+}
+
+@keyframes fadeInOutFromBottom {
+  5%,95%{opacity:1;bottom:50px}
+  15%,85%{opacity:1;bottom:30px}
+}
+
+@keyframes fadeInOutTop {
+  5%,95%{opacity:1;top:50px}
+  15%,85%{opacity:1;top:30px}
+}
