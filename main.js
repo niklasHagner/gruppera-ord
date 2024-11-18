@@ -49,9 +49,9 @@ function handleCardClick(card) {
 
 function checkSelection() {
   const group = selectedCards[0].dataset.group;
-  const allSameGroup = selectedCards.every(card => card.dataset.group === group);
+  const isCorrect = selectedCards.every(card => card.dataset.group === group);
 
-  if (allSameGroup) {
+  if (isCorrect) {
       const themeName = document.createElement('div');
       themeName.classList.add('theme');
       themeName.textContent = group.charAt(0).toUpperCase() + group.slice(1);
@@ -83,10 +83,13 @@ function checkSelection() {
           card.classList.add('warn');
       });
 
-      const gla = [...selectedCards]; 
+      const incorrectCards = [...selectedCards];
+      const incorrectText = selectedCards.map(card => card.textContent).join(', ');
+      document.querySelector(".failed-guesses").classList.remove("hidden");
+      document.querySelector(".failed-guesses-text").innerHTML += `<p>${incorrectText}</p>`;
 
       setTimeout(() => {
-        gla.forEach(card => card.classList.remove('warn'));
+        incorrectCards.forEach(card => card.classList.remove('warn'));
       }, 550);
       showToastFromTop("Fel, bzzt! 🐝 Prova igen")
   }
@@ -139,15 +142,6 @@ function hideSplashScreen() {
   confettiContainer.innerHTML = '';
 }
 
-function generateConfetti() {
-  for (let i = 0; i < 100; i++) {
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = `${Math.random() * 100}%`;
-      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      confettiContainer.appendChild(confetti);
-  }
-}
 
 // Start the first game
 startNewGame();

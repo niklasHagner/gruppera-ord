@@ -7,7 +7,7 @@ window.games = [
   },
   {
       känslor: ["Lycklig", "Arg", "Lugn", "Frustrerad"],
-      färger: ["Lila", "Cyan", "Magenta", "Lime"],
+      färger: ["Lila", "Turkos", "Magenta", "Beige"],
       djur: ["Häst", "Ko", "Får", "Get"],
       frukter: ["Mango", "Persika", "Ananas", "Jordgubbe"]
   },
