@@ -57,6 +57,7 @@ function checkSelection() {
       themeName.textContent = group.charAt(0).toUpperCase() + group.slice(1);
 
       const itemsList = selectedCards.map(card => card.textContent).join(', ');
+      selectedCards.forEach(card => flyCardIntoCompletedZone(card));
 
       const itemsText = document.createElement('div');
       itemsText.classList.add('items-list');
@@ -71,24 +72,23 @@ function checkSelection() {
           card.remove();
       });
 
-      message.textContent = 'Rätt! Du hittade en gruppering av 4 ord!';
-      message.classList.add('message-show');
-      setTimeout(() => {
-          message.classList.remove('message-show');
-      }, 3000);
-
       if (gridContainer.children.length === 0) {
-          showSplashScreen();
+        showSplashScreen();
       } else {
-          reshuffleRemainingCards();
+        reshuffleRemainingCards();
       }
   } else {
-      selectedCards.forEach(card => card.classList.remove('selected'));
-      message.textContent = 'Fel 🙁. Prova igen';
-      message.classList.add('message-show');
+      selectedCards.forEach(card => {
+          card.classList.remove('selected');
+          card.classList.add('warn');
+      });
+
+      const gla = [...selectedCards]; 
+
       setTimeout(() => {
-          message.classList.remove('message-show');
-      }, 3000);
+        gla.forEach(card => card.classList.remove('warn'));
+      }, 550);
+      showToastFromTop("Fel, bzzt! 🐝 Prova igen")
   }
 
   selectedCards = [];
