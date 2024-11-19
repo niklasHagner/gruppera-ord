@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gruppera Ord</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="toast.css">
-
+    <link rel="stylesheet" href="splash.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -15,36 +16,53 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <main>
-    <h1>Gruppera 4 ord</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+  </head>
 
-    <div class="toast" id="toast-top"></div>
-    <div class="correct-answers" id="correct-answers"></div>
-    <div class="grid-container" id="grid-container"></div>
-    <div id="message"></div>
-    <div class="failed-guesses hidden">
-      <h2>Felaktiga gissningar 🐁 🧪 </h2>
-      <div class="failed-guesses-text"></div>
+  <body>
+    <main>
+      <h1>Gruppera 4 ord</h1>
+
+      <div class="toast" id="toast-top"></div>
+      <div class="correct-answers" id="correct-answers"></div>
+      <div class="grid-container" id="grid-container"></div>
+      <div id="message"></div>
+      <div class="failed-guesses hidden">
+        <h2>Felaktiga gissningar 🐁 🧪 </h2>
+        <div class="failed-guesses-text"></div>
+      </div>
+      <button id="shuffle-cards">Blanda spelplanen</button>
+      
+      <button id="new-game">Nytt spel</button>
+      <br>
+
+      <div class="difficulty-selection">
+        <label for="min-difficulty">Svårighet:</label>
+        <select id="difficulty-select">
+          <option value="x">Blandat</option>
+          <option value="1">Lätt</option>
+          <option value="2">Medium</option>
+          <option value="3">Svår</option>
+        </select>
+      </div>
+
+    </main>
+    <footer>
+      Ihophackat av Hagge 🐝
+    </footer>
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-content">
+        <div id="confetti-container"></div>
+        <h1>Snyggt jobbat! 🎉</h1>
+        <img alt=""
+          src="https://media2.giphy.com/media/BJm2BtzkT86MSUnDDE/giphy.gif?cid=6c09b952cm3mifjx0xt9bodggkxd8o07n7fjlfsd04big92x&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s">
+      </div>
     </div>
-    <button id="new-game">Spela igen</button>
-    <button id="shuffle-cards">Blanda om</button>
-  </main>
-  <footer>
-    Ihophackat av Hagge 🐝
-  </footer>
-  <div id="splash-screen" class="splash-screen">
-    <div class="splash-content">
-      <div id="confetti-container"></div>
-      <h1>Snyggt jobbat! 🎉</h1>
-      <img alt="" src="https://media2.giphy.com/media/BJm2BtzkT86MSUnDDE/giphy.gif?cid=6c09b952cm3mifjx0xt9bodggkxd8o07n7fjlfsd04big92x&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s">
-    </div>
-  </div>
-  <script src="games.js"></script>
-  <script src="main.js"></script>
-  <script src="toast.js"></script>
-  <script src="animations.js"></script>
-</body>
+    <script src="games.js"></script>
+    <script src="main.js"></script>
+    <script src="toast.js"></script>
+    <script src="animations.js"></script>
+  </body>
+
 </html>

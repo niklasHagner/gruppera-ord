@@ -12,8 +12,15 @@ newGameButton.addEventListener('click', startNewGame);
 shuffleButton.addEventListener('click', shuffleExistingCards);
 
 function startNewGame() {
-  const game = window.games[Math.floor(Math.random() * window.games.length)];
-  const words = Object.entries(game).flatMap(([group, words]) => words.map(word => ({ word, group })));
+  let filteredGames = window.games;
+  
+  const selectedDifficulty = parseInt(document.getElementById('difficulty-select').value);
+  if (!Number.isNaN(selectedDifficulty)) {
+    filteredGames = window.games.filter(game => game.difficulty === selectedDifficulty);
+  }
+  
+  const game = filteredGames[Math.floor(Math.random() * filteredGames.length)];
+  const words = Object.entries(game.themes).flatMap(([group, words]) => words.map(word => ({ word, group })));
   shuffle(words);
   gridContainer.innerHTML = '';
   correctAnswersContainer.innerHTML = '';
