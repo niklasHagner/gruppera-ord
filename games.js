@@ -101,46 +101,46 @@ window.games = [
   {
     difficulty: 2,
     themes: {
-      "svenska högtider": ["Midsommar", "Lucia", "Påsk", "Jul"],
-      "svenska varumärken": ["IKEA", "ABBA", "Volvo", "Spotify"],
-      "nordisk natur": ["Fjäll", "Gran", "Sjö", "Älg"],
-      "tårtor": ["Prinsess", "Budapest", "Chocklad", "Rull"],
+      högtider: ["Midsommar", "Lucia", "Påsk", "Jul"],
+      varumärken: ["IKEA", "ABBA", "Volvo", "Spotify"],
+      natur: ["Fjäll", "Gran", "Sjö", "Älg"],
+      tårtor: ["Prinsess", "Budapest", "Chocklad", "Rull"],
     }
   },
   {
     difficulty: 2,
     themes: {
-      "folktro": ["Tomte", "Näcken", "Troll", "Gnom"],
-      "fika": ["Drömmar", "Dammsugare", "Längd", "Bulle"],
-      "is": ["Vak", "Halka", "Frys", "Kall"],
-      "spel": ["Kubb", "Fia", "Yatzy", "Vändtia"]
+      folktro: ["Tomte", "Näcken", "Troll", "Gnom"],
+      fika: ["Drömmar", "Dammsugare", "Längd", "Bulle"],
+      is: ["Vak", "Halka", "Frys", "Kall"],
+      spel: ["Kubb", "Fia", "Yatzy", "Vändtia"]
     }
   },
   {
     difficulty: 2,
     themes: {
-      "farliga djur": ["Haj", "Orm", "Lejon", "Skorpion"],
-      "morgonrutiner": ["Kaffe", "Dusch", "Tandborste", "Tidning"],
-      "väderfenomen": ["Tornado", "Regnbåge", "Åska", "Dimma"],
-      "magiska föremål": ["Stav", "Spegel", "Amulett", "Kittel"],
+      djur: ["Haj", "Orm", "Lejon", "Skorpion"],
+      morgonrutiner: ["Kaffe", "Dusch", "Tandborste", "Tidning"],
+      väderfenomen: ["Tornado", "Regnbåge", "Åska", "Dimma"],
+      magiföremål: ["Stav", "Spegel", "Amulett", "Kittel"],
     }
   },
   {
     difficulty: 2,
     themes: {
-      "parfymdofter": ["Mysk", "Vanilj", "Lavendel", "Ros"],
-      "verktygslådan": ["Hammare", "Skruvmejsel", "Såg", "Tång"],
-      "fartygstyper": ["U-båt", "Segelbåt", "Färja", "Jakt"],
-      "konstnärligt": ["Pensel", "Grafit", "Palett", "Staffli"],
+      parfymdofter: ["Mysk", "Vanilj", "Lavendel", "Ros"],
+      verktygslådan: ["Hammare", "Skruvmejsel", "Såg", "Tång"],
+      fartygstyper: ["U-båt", "Segelbåt", "Färja", "Jakt"],
+      konstnärligt: ["Pensel", "Grafit", "Palett", "Staffli"],
     }
   },
   {
     difficulty: 3,
     themes: {
-      "osynliga saker": ["Kärlek", "Luft", "Tid", "Gravitation"],
-      "ljud": ["Knarr", "Pip", "Brus", "Muller"],
-      "yrken": ["Kusk", "Smed", "Bagare", "Fiskare"],
-      "färgglada grejor": ["Regnbåge", "Papegoja", "Blomma", "Konfetti"]
+      osynligheter: ["Kärlek", "Luft", "Tid", "Gravitation"],
+      ljud: ["Knarr", "Pip", "Brus", "Muller"],
+      yrken: ["Kusk", "Smed", "Bagare", "Fiskare"],
+      färgglatt: ["Regnbåge", "Papegoja", "Blomma", "Konfetti"]
     }
   },
 ];
