@@ -12,6 +12,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  overflow-x: hidden; /* Prevent sidescroll during touch events */
 }
 
 main {
@@ -19,7 +20,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding-bottom: 32px;
 }
 
@@ -34,6 +34,7 @@ footer {
 
 h1 {
   color: #709170;
+  margin-top: 4px;
 }
 
 .hidden {
@@ -43,10 +44,11 @@ h1 {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
-  grid-gap: 10px;
+  grid-gap: 8px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  padding-left: 3px; /* Since there's a box-shadow to the right we gotta pad left to center */
   justify-content: center; /* Center the grid items */
 }
 

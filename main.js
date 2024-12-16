@@ -11,6 +11,46 @@ const confettiContainer = document.getElementById('confetti-container');
 newGameButton.addEventListener('click', startNewGame);
 shuffleButton.addEventListener('click', shuffleExistingCards);
 
+/* TOUCH */
+let touchStartX = null
+let touchStartY = null;
+let touchEndX = 0;
+let touchEndY = 0;
+
+gridContainer.addEventListener('touchstart', handleTouchStart, false);
+gridContainer.addEventListener('touchmove', handleTouchMove, false);
+gridContainer.addEventListener('touchend', handleTouchEnd, false);
+
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+}
+
+function handleTouchMove(event) {
+  const touch = event.touches[0];
+  touchEndX = touch.clientX;
+  touchEndY = touch.clientY;
+
+  if (selectedCards.length >= 4) return; // Prevent selecting more than 4 cards
+
+  const card = document.elementFromPoint(touchEndX, touchEndY);
+  if (card && card.classList.contains('card') && !card.classList.contains('resolved') && !card.classList.contains('selected')) {
+  console.log("move to select");
+
+    card.classList.add('selected');
+    selectedCards.push(card);
+  }
+}
+
+function handleTouchEnd() {
+  if (selectedCards.length === 4) {
+    checkSelection();
+  }
+  touchStartX = null;
+  touchStartY = null;
+}
+
 function startNewGame() {
   let filteredGames = window.games;
   
@@ -28,29 +68,33 @@ function startNewGame() {
   hideSplashScreen();
 
   words.forEach(({ word, group }) => {
-      const card = document.createElement('div');
-      card.classList.add('card', group);
-      card.textContent = word;
-      card.dataset.group = group;
-      card.addEventListener('click', () => handleCardClick(card));
-      gridContainer.appendChild(card);
+    const card = document.createElement('div');
+    card.classList.add('card', group);
+    card.textContent = word;
+    card.dataset.group = group;
+    card.addEventListener('click', () => handleCardClick(card));
+    gridContainer.appendChild(card);
   });
 
   selectedCards = [];
 }
 
 function handleCardClick(card) {
-  if (card.classList.contains('resolved')) return;
+  if (card.classList.contains('resolved') || touchStartX || touchStartY) {
+    return;
+  }
+
+  console.log("click", card)
 
   card.classList.toggle('selected');
   if (card.classList.contains('selected')) {
-      selectedCards.push(card);
+    selectedCards.push(card);
   } else {
-      selectedCards = selectedCards.filter(c => c !== card);
+    selectedCards = selectedCards.filter(c => c !== card);
   }
 
   if (selectedCards.length === 4) {
-      checkSelection();
+    checkSelection();
   }
 }
 
