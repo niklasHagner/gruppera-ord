@@ -2,6 +2,10 @@
   --card-width: 120px;
 }
 
+html, body {
+  overflow-x: hidden; /* Prevent sidescroll during touch events */
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -12,7 +16,8 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  overflow-x: hidden; /* Prevent sidescroll during touch events */
+  /* Prevent sidescroll during touch events */
+  max-width: 100%;
 }
 
 main {
