@@ -143,5 +143,22 @@ window.games = [
       färgglatt: ["Regnbåge", "Papegoja", "Blomma", "Konfetti"]
     }
   },
+  {
+    difficulty: 3,
+    themes: {
+      aggregationsformer: ["Fast", "Flytande", "Gas", "Plasma"],
+      stearinljustyper: ["Värme", "Kron", "Block", "Doft"],
+      ordbehandling: ["Kopiera", "Klipp", "Klistra", "Radera"],
+      spel: ["Domino", "Shack", "Kalaha", "Jenga"]
+    }
+  },
+  {
+    difficulty: 3,
+    themes: {
+      filmyrken: ["Producent", "Regissör", "Skådis", "Fotograf"],
+      adjektiv: ["Minst", "Flera", "Större", "Gammal"],
+      verb: ["Peta", "Röra", "Kastade", "Vänd"], kött: ["Fågel", "Nöt", "Fläsk", "Vilt"],
+    }
+  },
 ];
 
