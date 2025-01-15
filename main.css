@@ -3,7 +3,8 @@
 }
 
 html, body {
-  overflow-x: hidden; /* Prevent sidescroll during touch events */
+  overflow: hidden; /* Prevent scrolling */
+  touch-action: manipulation; /* Allow touch interactions but prevent scrolling */
 }
 
 body {
@@ -29,18 +30,27 @@ main {
 }
 
 footer {
+  margin-top: auto; /* Pushes the footer to the bottom */
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
   background-color: #709170;
   color: white;
-  text-align: center;
-  padding: 10px 0;
-  width: 100%;
-  margin-top: auto; /* Pushes the footer to the bottom */
+  font-size: 0.8em;
 }
 
-h1 {
-  color: #709170;
-  margin-top: 4px;
+header {
+  background-color: #709170;
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+
+  h1 {
+    color: #eee;
+    margin: 0;
+  }
 }
+
 
 .hidden {
   display: none;
@@ -137,10 +147,22 @@ button {
   color: white;
   transition: background-color 0.2s;
   font-family: "Jost";
+
+  @media (hover: hover) {
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background-color: green;
+  }
 }
 
-button:hover {
-  background-color: #555;
+.button-group {
+  display: flex;
+  gap: 10px;
 }
 
 .difficulty-selection {
@@ -157,4 +179,29 @@ button:hover {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
+}
+
+.failed-guesses {
+  h2,
+  li {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  li {
+    list-style: listemoji;
+  }
+
+  .failed-guesses-text {
+    font-size: 0.7em;
+  }
+}
+
+@counter-style listemoji {
+  system: cyclic;
+  symbols: "🧠";
+  suffix: " ";
 }

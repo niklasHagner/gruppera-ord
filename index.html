@@ -22,25 +22,28 @@
 
   <body>
     <main>
-      <h1>Gruppera 4 ord 🐦‍⬛</h1>
+      <header>
+        <h1>Gruppera 4 ord 🐦‍⬛</h1>
+      </header>
 
       <div class="toast" id="toast-top"></div>
       <div class="correct-answers" id="correct-answers"></div>
       <div class="grid-container" id="grid-container"></div>
       <div id="message"></div>
       <div class="failed-guesses hidden">
-        <h2>Felaktiga gissningar 🐁 🧪 </h2>
-        <div class="failed-guesses-text"></div>
+        <h2>Felaktiga gissningar</h2>
+        <ul class="failed-guesses-text"></ul>
       </div>
-      <button id="shuffle-cards">Blanda korten</button>
-      
-      <button id="new-game">Nytt spel</button>
+      <div class="button-group">
+        <button id="shuffle-cards">🃏 Blanda korten</button>
+        <button id="new-game">Ny omgång</button>
+      </div>
       <br>
 
       <div class="difficulty-selection">
         <label for="min-difficulty">Svårighet:</label>
         <select id="difficulty-select">
-          <option value="x">Blandat</option>
+          <option value="x">Slumpat</option>
           <option value="1">Lätt</option>
           <option value="2">Medium</option>
           <option value="3">Svår</option>

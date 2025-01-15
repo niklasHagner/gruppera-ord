@@ -5,7 +5,10 @@ const newGameButton = document.getElementById('new-game');
 const shuffleButton = document.getElementById('shuffle-cards');
 const correctAnswersContainer = document.getElementById('correct-answers');
 const splashScreen = document.getElementById('splash-screen');
-splashScreen.addEventListener("click", hideSplashScreen);
+splashScreen.addEventListener("click", () => {
+  hideSplashScreen();
+  startNewGame();
+});
 const confettiContainer = document.getElementById('confetti-container');
 
 newGameButton.addEventListener('click', startNewGame);
@@ -67,12 +70,16 @@ function startNewGame() {
   message.textContent = '';
   hideSplashScreen();
 
+  document.querySelector(".failed-guesses").classList.add("hidden");
+  document.querySelector(".failed-guesses-text").innerHTML = "";
+
   words.forEach(({ word, group }) => {
     const card = document.createElement('div');
     card.classList.add('card', group);
     card.textContent = word;
     card.dataset.group = group;
     card.addEventListener('click', () => handleCardClick(card));
+    scaleFontSizeToCard(card); // Adjust font size based on character count
     gridContainer.appendChild(card);
   });
 
@@ -137,12 +144,12 @@ function checkSelection() {
       const incorrectCards = [...selectedCards];
       const incorrectText = selectedCards.map(card => card.textContent).join(', ');
       document.querySelector(".failed-guesses").classList.remove("hidden");
-      document.querySelector(".failed-guesses-text").innerHTML += `<p>${incorrectText}</p>`;
+      document.querySelector(".failed-guesses-text").innerHTML += `<li>${incorrectText}</li>`;
 
       setTimeout(() => {
         incorrectCards.forEach(card => card.classList.remove('warn'));
       }, 550);
-      showToastFromTop("Fel, bzzt! 🐝 Prova igen")
+      showToastFromTop("Fel! 🐝 Prova igen")
   }
 
   selectedCards = [];
@@ -193,6 +200,13 @@ function hideSplashScreen() {
   confettiContainer.innerHTML = '';
 }
 
+function scaleFontSizeToCard(card) {
+  const maxFontSize = 16; // Maximum font size in pixels
+  const minFontSize = 8; // Minimum font size in pixels
+  const charCount = card.textContent.length;
+  const newFontSize = Math.max(minFontSize, maxFontSize - charCount / 2);
+  card.style.fontSize = `${newFontSize}px`;
+}
 
 // Start the first game
 startNewGame();
