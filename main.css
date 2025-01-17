@@ -205,3 +205,10 @@ button {
   symbols: "🧠";
   suffix: " ";
 }
+
+.difficulty-level {
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  color: rgba(255,255,255,0.5);
+}

@@ -57,12 +57,17 @@ function handleTouchEnd() {
 function startNewGame() {
   let filteredGames = window.games;
   
-  const selectedDifficulty = parseInt(document.getElementById('difficulty-select').value);
-  if (!Number.isNaN(selectedDifficulty)) {
-    filteredGames = window.games.filter(game => game.difficulty === selectedDifficulty);
+  const difficultySelect = document.getElementById('difficulty-select');
+  const selectedDifficultyInt = parseInt(difficultySelect.options[difficultySelect.selectedIndex].value);
+  if (!Number.isNaN(selectedDifficultyInt)) {
+    filteredGames = window.games.filter(game => game.difficulty === selectedDifficultyInt);
   }
   
+  
   const game = filteredGames[Math.floor(Math.random() * filteredGames.length)];
+  const difficultyLevel = document.querySelector('.difficulty-level');
+  difficultyLevel.textContent = `${difficultyKeyToText(game.difficulty)}`;
+
   const words = Object.entries(game.themes).flatMap(([group, words]) => words.map(word => ({ word, group })));
   shuffle(words);
   gridContainer.innerHTML = '';
@@ -82,6 +87,7 @@ function startNewGame() {
     scaleFontSizeToCard(card); // Adjust font size based on character count
     gridContainer.appendChild(card);
   });
+
 
   selectedCards = [];
 }
@@ -112,6 +118,20 @@ function escapeGroup(group) {
 function unescapeGroup(group) {
   return group.replace(/~/g, ' ');
 }
+
+const difficulties = [
+  { key: "x", text: "Slumpat" },
+  { key: "1", text: "Görlätt" },
+  { key: "2", text: "Enkel" },
+  { key: "3", text: "Medel" },
+  { key: "4", text: "Klurig" },
+];
+
+function difficultyKeyToText(key) {
+  const keyString = key.toString();
+  const difficulty = difficulties.find(x => x.key === keyString);
+  return difficulty ? difficulty.text : '';
+} 
 
 function checkSelection() {
   const group = selectedCards[0].dataset.group;
