@@ -75,9 +75,9 @@ function startNewGame() {
 
   words.forEach(({ word, group }) => {
     const card = document.createElement('div');
-    card.classList.add('card', group);
+    card.classList.add('card', escapeGroup(group));
     card.textContent = word;
-    card.dataset.group = group;
+    card.dataset.group = escapeGroup(group);
     card.addEventListener('click', () => handleCardClick(card));
     scaleFontSizeToCard(card); // Adjust font size based on character count
     gridContainer.appendChild(card);
@@ -105,6 +105,14 @@ function handleCardClick(card) {
   }
 }
 
+function escapeGroup(group) {
+  return group.replace(/\s+/g, '~');
+}
+
+function unescapeGroup(group) {
+  return group.replace(/~/g, ' ');
+}
+
 function checkSelection() {
   const group = selectedCards[0].dataset.group;
   const isCorrect = selectedCards.every(card => card.dataset.group === group);
@@ -112,7 +120,10 @@ function checkSelection() {
   if (isCorrect) {
       const themeName = document.createElement('div');
       themeName.classList.add('theme');
-      themeName.textContent = group.charAt(0).toUpperCase() + group.slice(1);
+      const groupText = unescapeGroup(group);
+      themeName.textContent = groupText.charAt(0).toUpperCase() + groupText.slice(1);
+
+      console.log("asopidhj",themeName.textContent)
 
       const itemsList = selectedCards.map(card => card.textContent).join(', ');
       selectedCards.forEach(card => flyCardIntoCompletedZone(card));
