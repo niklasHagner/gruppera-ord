@@ -157,9 +157,10 @@ function checkSelection() {
     } else {
       reshuffleRemainingCards();
     }
+    selectedCards = [];
+
   } else {
     selectedCards.forEach(card => {
-      card.classList.remove('selected');
       card.classList.add('warn');
     });
 
@@ -171,10 +172,12 @@ function checkSelection() {
     setTimeout(() => {
       incorrectCards.forEach(card => card.classList.remove('warn'));
     }, 550);
-    showToastFromTop("Fel! 🐝 Prova igen")
+    showToastFromTop("Fel! 🐝 Prova igen");
+
+    selectedCards[3].classList.remove('selected');
+    selectedCards.pop();
   }
 
-  selectedCards = [];
 }
 
 function escapeGroup(group) {
