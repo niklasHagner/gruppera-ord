@@ -12,7 +12,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  background-color: #e0f7e0; /* Spearmint green background */
+  background-color: #e9c46a;
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -34,13 +34,13 @@ footer {
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  background-color: #709170;
+  background-color: #2a9d8f;
   color: white;
   font-size: 0.8em;
 }
 
 header {
-  background-color: #709170;
+  background-color: #2a9d8f;
   width: 100%;
   text-align: center;
   padding: 4px;
@@ -75,7 +75,7 @@ header {
   height: var(--card-width);
   border-radius: 10px;
   background-color: #fdfbf8; /* Bone white gradient */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(255, 255, 255, 0.5); /* Subtle shadow effect */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(225, 208, 23, 0.5); /* Subtle shadow effect */
   cursor: pointer;
   user-select: none;
   color: #333;
@@ -88,11 +88,13 @@ header {
   }
 
   &.selected {
-    background: rgb(142 241 143 / 90%);
+    background-color: #264653;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(23, 18, 38, 0.5); /* Subtle shadow effect */
   }
 
   &.warn {
-    background-color: rgba(197, 178, 70, 0.837);
+    background-color: #e76f51;
   }
   
   &.resolved {
