@@ -212,3 +212,69 @@ button {
   right: 8px;
   color: rgba(255,255,255,0.5);
 }
+
+@keyframes appear-animation-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -10px);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+  75% {
+    transform: translate(10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes appear-animation-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, 10px);
+  }
+  50% {
+    transform: translate(+10px, 20px);
+  }
+  75% {
+    transform: translate(10px, 25px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes appear-animation-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-20px, -20px);
+  }
+  50% {
+    transform: translate(-10px, -10px);
+  }
+  75% {
+    transform: translate(15px, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.card.appear-animation-1 {
+  animation: appear-animation-1 0.3s ease-in-out;
+}
+
+.card.appear-animation-2 {
+  animation: appear-animation-2 0.2s ease-in-out;
+}
+
+.card.appear-animation-3 {
+  animation: appear-animation-3 0.4s ease-in-out;
+}

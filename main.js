@@ -63,7 +63,6 @@ function startNewGame() {
     filteredGames = window.games.filter(game => game.difficulty === selectedDifficultyInt);
   }
   
-  
   const game = filteredGames[Math.floor(Math.random() * filteredGames.length)];
   const difficultyLevel = document.querySelector('.difficulty-level');
   difficultyLevel.textContent = `${difficultyKeyToText(game.difficulty)}`;
@@ -88,8 +87,27 @@ function startNewGame() {
     gridContainer.appendChild(card);
   });
 
-
   selectedCards = [];
+
+  // Add shuffle animation to cards
+  const cards = Array.from(gridContainer.children);
+  cards.forEach(card => {
+    const randomNum = Math.random();
+    let animationClass;
+    if (randomNum < 0.33) {
+      animationClass = 'appear-animation-1';
+    } else if (randomNum < 0.66) {
+      animationClass = 'appear-animation-2';
+    } else {
+      animationClass = 'appear-animation-3';
+    }
+    card.classList.add(animationClass);
+  });
+  setTimeout(() => {
+    cards.forEach(card => {
+      card.classList.remove('appear-animation-1', 'appear-animation-2', 'appear-animation-3');
+    });
+  }, 300);
 }
 
 function handleCardClick(card) {
