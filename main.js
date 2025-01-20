@@ -39,8 +39,6 @@ function handleTouchMove(event) {
 
   const card = document.elementFromPoint(touchEndX, touchEndY);
   if (card && card.classList.contains('card') && !card.classList.contains('resolved') && !card.classList.contains('selected')) {
-  console.log("move to select");
-
     card.classList.add('selected');
     selectedCards.push(card);
   }
@@ -56,13 +54,13 @@ function handleTouchEnd() {
 
 function startNewGame() {
   let filteredGames = window.games;
-  
+
   const difficultySelect = document.getElementById('difficulty-select');
   const selectedDifficultyInt = parseInt(difficultySelect.options[difficultySelect.selectedIndex].value);
   if (!Number.isNaN(selectedDifficultyInt)) {
     filteredGames = window.games.filter(game => game.difficulty === selectedDifficultyInt);
   }
-  
+
   const game = filteredGames[Math.floor(Math.random() * filteredGames.length)];
   const difficultyLevel = document.querySelector('.difficulty-level');
   difficultyLevel.textContent = `${difficultyKeyToText(game.difficulty)}`;
@@ -115,8 +113,6 @@ function handleCardClick(card) {
     return;
   }
 
-  console.log("click", card)
-
   card.classList.toggle('selected');
   if (card.classList.contains('selected')) {
     selectedCards.push(card);
@@ -127,6 +123,58 @@ function handleCardClick(card) {
   if (selectedCards.length === 4) {
     checkSelection();
   }
+}
+
+function checkSelection() {
+  const group = selectedCards[0].dataset.group;
+  const isCorrect = selectedCards.every(card => card.dataset.group === group);
+
+  if (isCorrect) {
+    const themeName = document.createElement('div');
+    themeName.classList.add('theme');
+    const groupText = unescapeGroup(group);
+    themeName.textContent = groupText.charAt(0).toUpperCase() + groupText.slice(1);
+
+
+    const itemsList = selectedCards.map(card => card.textContent).join(', ');
+    selectedCards.forEach(card => flyCardIntoCompletedZone(card));
+
+    const itemsText = document.createElement('div');
+    itemsText.classList.add('items-list');
+    itemsText.textContent = itemsList;
+
+    correctAnswersContainer.appendChild(themeName);
+    correctAnswersContainer.appendChild(itemsText);
+
+    selectedCards.forEach(card => {
+      card.classList.add('resolved');
+      card.classList.remove('selected');
+      card.remove();
+    });
+
+    if (gridContainer.children.length === 0) {
+      showSplashScreen();
+    } else {
+      reshuffleRemainingCards();
+    }
+  } else {
+    selectedCards.forEach(card => {
+      card.classList.remove('selected');
+      card.classList.add('warn');
+    });
+
+    const incorrectCards = [...selectedCards];
+    const incorrectText = selectedCards.map(card => card.textContent).join(', ');
+    document.querySelector(".failed-guesses").classList.remove("hidden");
+    document.querySelector(".failed-guesses-text").innerHTML += `<li>${incorrectText}</li>`;
+
+    setTimeout(() => {
+      incorrectCards.forEach(card => card.classList.remove('warn'));
+    }, 550);
+    showToastFromTop("Fel! 🐝 Prova igen")
+  }
+
+  selectedCards = [];
 }
 
 function escapeGroup(group) {
@@ -149,60 +197,8 @@ function difficultyKeyToText(key) {
   const keyString = key.toString();
   const difficulty = difficulties.find(x => x.key === keyString);
   return difficulty ? difficulty.text : '';
-} 
-
-function checkSelection() {
-  const group = selectedCards[0].dataset.group;
-  const isCorrect = selectedCards.every(card => card.dataset.group === group);
-
-  if (isCorrect) {
-      const themeName = document.createElement('div');
-      themeName.classList.add('theme');
-      const groupText = unescapeGroup(group);
-      themeName.textContent = groupText.charAt(0).toUpperCase() + groupText.slice(1);
-
-      console.log("asopidhj",themeName.textContent)
-
-      const itemsList = selectedCards.map(card => card.textContent).join(', ');
-      selectedCards.forEach(card => flyCardIntoCompletedZone(card));
-
-      const itemsText = document.createElement('div');
-      itemsText.classList.add('items-list');
-      itemsText.textContent = itemsList;
-
-      correctAnswersContainer.appendChild(themeName);
-      correctAnswersContainer.appendChild(itemsText);
-
-      selectedCards.forEach(card => {
-          card.classList.add('resolved');
-          card.classList.remove('selected');
-          card.remove();
-      });
-
-      if (gridContainer.children.length === 0) {
-        showSplashScreen();
-      } else {
-        reshuffleRemainingCards();
-      }
-  } else {
-      selectedCards.forEach(card => {
-          card.classList.remove('selected');
-          card.classList.add('warn');
-      });
-
-      const incorrectCards = [...selectedCards];
-      const incorrectText = selectedCards.map(card => card.textContent).join(', ');
-      document.querySelector(".failed-guesses").classList.remove("hidden");
-      document.querySelector(".failed-guesses-text").innerHTML += `<li>${incorrectText}</li>`;
-
-      setTimeout(() => {
-        incorrectCards.forEach(card => card.classList.remove('warn'));
-      }, 550);
-      showToastFromTop("Fel! 🐝 Prova igen")
-  }
-
-  selectedCards = [];
 }
+
 
 function reshuffleRemainingCards() {
   const remainingCards = Array.from(gridContainer.children);
@@ -210,18 +206,18 @@ function reshuffleRemainingCards() {
   gridContainer.innerHTML = '';
   remainingCards.forEach(card => gridContainer.appendChild(card));
   remainingCards.forEach(card => {
-      card.style.transition = 'transform 0.2s';
-      card.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-          card.style.transform = 'scale(1)';
-      }, 200);
+    card.style.transition = 'transform 0.2s';
+    card.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      card.style.transform = 'scale(1)';
+    }, 200);
   });
 }
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
@@ -231,11 +227,11 @@ function shuffleExistingCards() {
   gridContainer.innerHTML = '';
   cards.forEach(card => gridContainer.appendChild(card));
   cards.forEach(card => {
-      card.style.transition = 'transform 0.2s';
-      card.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-          card.style.transform = 'scale(1)';
-      }, 200);
+    card.style.transition = 'transform 0.2s';
+    card.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      card.style.transform = 'scale(1)';
+    }, 200);
   });
 }
 
