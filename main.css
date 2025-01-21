@@ -40,6 +40,7 @@ footer {
 }
 
 header {
+  position: relative;
   background-color: #2a9d8f;
   width: 100%;
   text-align: center;
@@ -50,7 +51,6 @@ header {
     margin: 0;
   }
 }
-
 
 .hidden {
   display: none;
@@ -171,16 +171,16 @@ button {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-}
 
-.difficulty-selection label {
-  font-weight: bold;
-}
+  label {
+    font-weight: bold;
+  }
 
-.difficulty-selection select {
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
 }
 
 .failed-guesses {
@@ -209,9 +209,15 @@ button {
 }
 
 .difficulty-level {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: right;
+  justify-content: center;
   position: absolute;
-  top: 14px;
-  right: 8px;
+  top: 0;  
+  right: 0;
+  padding: 0 8px;
   color: rgba(255,255,255,0.5);
 }
 

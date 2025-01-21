@@ -56,13 +56,14 @@ function startNewGame() {
   let filteredGames = window.games;
 
   const difficultySelect = document.getElementById('difficulty-select');
+  difficultySelect.addEventListener('change', startNewGame);
   const selectedDifficultyInt = parseInt(difficultySelect.options[difficultySelect.selectedIndex].value);
   if (!Number.isNaN(selectedDifficultyInt)) {
     filteredGames = window.games.filter(game => game.difficulty === selectedDifficultyInt);
   }
 
   const game = filteredGames[Math.floor(Math.random() * filteredGames.length)];
-  const difficultyLevel = document.querySelector('.difficulty-level');
+  const difficultyLevel = document.querySelector('.difficulty-level-text');
   difficultyLevel.textContent = `${difficultyKeyToText(game.difficulty)}`;
 
   const words = Object.entries(game.themes).flatMap(([group, words]) => words.map(word => ({ word, group })));
