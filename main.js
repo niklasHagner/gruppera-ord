@@ -46,7 +46,7 @@ function handleTouchMove(event) {
 
 function handleTouchEnd() {
   if (selectedCards.length === 4) {
-    checkSelection();
+    checkSelectedCards();
   }
   touchStartX = null;
   touchStartY = null;
@@ -122,11 +122,11 @@ function handleCardClick(card) {
   }
 
   if (selectedCards.length === 4) {
-    checkSelection();
+    handleSelectedCards();
   }
 }
 
-function checkSelection() {
+function handleSelectedCards() {
   const group = selectedCards[0].dataset.group;
   const isCorrect = selectedCards.every(card => card.dataset.group === group);
 
@@ -174,9 +174,6 @@ function checkSelection() {
       incorrectCards.forEach(card => card.classList.remove('warn'));
     }, 550);
     showToastFromTop("Fel! 🐝 Prova igen");
-
-    selectedCards[3].classList.remove('selected');
-    selectedCards.pop();
   }
 
 }
