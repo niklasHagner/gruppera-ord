@@ -112,11 +112,19 @@ function handleCardClick(card) {
     return;
   }
 
-  card.classList.toggle('selected');
+  
+
   if (card.classList.contains('selected')) {
-    selectedCards.push(card);
-  } else {
     selectedCards = selectedCards.filter(c => c !== card);
+    card.classList.remove('selected');
+  } else {
+    if (selectedCards.length >= 4) {
+      showToastFromTop("Max 4 kort kan markeras 🫵 ");
+      return;
+    }
+    
+    selectedCards.push(card);
+    card.classList.add('selected');
   }
 
   if (selectedCards.length === 4) {
