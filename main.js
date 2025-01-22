@@ -1,6 +1,5 @@
 let selectedCards = [];
 const gridContainer = document.getElementById('grid-container');
-const message = document.getElementById('message');
 const newGameButton = document.getElementById('new-game');
 const shuffleButton = document.getElementById('shuffle-cards');
 const correctAnswersContainer = document.getElementById('correct-answers');
@@ -70,7 +69,6 @@ function startNewGame() {
   shuffle(words);
   gridContainer.innerHTML = '';
   correctAnswersContainer.innerHTML = '';
-  message.textContent = '';
   hideSplashScreen();
 
   document.querySelector(".failed-guesses").classList.add("hidden");

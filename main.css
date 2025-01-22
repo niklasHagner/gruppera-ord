@@ -129,15 +129,6 @@ header {
   color: #333;
 }
 
-#message {
-  margin-top: 20px;
-  font-size: 1.2em;
-  color: #333;
-  min-height: 1.5em; /* Reserve space for the message */
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
 button {
   margin-top: 20px;
   padding: 10px 20px;
