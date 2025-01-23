@@ -86,6 +86,7 @@ header {
   font-weight: bold;
   text-align: center;
   transition: transform 0.25s, background-color 0.5s, top 0.25s, left 0.25s;
+  text-transform: uppercase;
 
   &:hover {
     transform: scale(1.05);
