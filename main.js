@@ -2,6 +2,13 @@ let selectedCards = [];
 const gridContainer = document.getElementById('grid-container');
 const newGameButton = document.getElementById('new-game');
 const shuffleButton = document.getElementById('shuffle-cards');
+const deselectAllCardsButton = document.getElementById('deselect-cards');
+
+newGameButton.addEventListener('click', startNewGame);
+shuffleButton.addEventListener('click', shuffleExistingCards);
+deselectAllCardsButton.addEventListener('click', deselectAllCards);
+
+const difficultyDisplayEl = document.querySelector('.difficulty-level-display');
 const correctAnswersContainer = document.getElementById('correct-answers');
 const splashScreen = document.getElementById('splash-screen');
 splashScreen.addEventListener("click", () => {
@@ -10,8 +17,6 @@ splashScreen.addEventListener("click", () => {
 });
 const confettiContainer = document.getElementById('confetti-container');
 
-newGameButton.addEventListener('click', startNewGame);
-shuffleButton.addEventListener('click', shuffleExistingCards);
 
 /* TOUCH */
 let touchStartX = null
@@ -43,9 +48,13 @@ function handleTouchMove(event) {
   }
 }
 
-function handleTouchEnd() {
+function handleTouchEnd(event) {
+  if (!touchStartX || !touchEndX) { // Don't even count this as an event since the touch hasn't moved. Let the click event handler run instead!
+    return;
+  }
+  
   if (selectedCards.length === 4) {
-    checkSelectedCards();
+    submitFourSelectedCards();
   }
   touchStartX = null;
   touchStartY = null;
@@ -62,8 +71,13 @@ function startNewGame() {
   }
 
   const game = filteredGames[Math.floor(Math.random() * filteredGames.length)];
-  const difficultyLevel = document.querySelector('.difficulty-level-text');
-  difficultyLevel.textContent = `${difficultyKeyToText(game.difficulty)}`;
+  difficultyDisplayEl.textContent = `${difficultyKeyToText(game.difficulty)}`;
+  difficultyDisplayEl.style.transition = 'transform 0.2s';
+  difficultyDisplayEl.style.transform = 'scale(1.1)';
+  setTimeout(() => {
+    difficultyDisplayEl.style.transform = 'scale(1)';
+  }, 300);
+  
 
   const words = Object.entries(game.themes).flatMap(([group, words]) => words.map(word => ({ word, group })));
   shuffle(words);
@@ -79,7 +93,9 @@ function startNewGame() {
     card.classList.add('card', escapeGroup(group));
     card.textContent = word;
     card.dataset.group = escapeGroup(group);
+    
     card.addEventListener('click', () => handleCardClick(card));
+
     scaleFontSizeToCard(card); // Adjust font size based on character count
     gridContainer.appendChild(card);
   });
@@ -108,11 +124,9 @@ function startNewGame() {
 }
 
 function handleCardClick(card) {
-  if (card.classList.contains('resolved') || touchStartX || touchStartY) {
-    return;
-  }
-
-  
+  // if (card.classList.contains('resolved') || touchStartX || touchStartY) { // Prevent running click event if we already ran a touchEnd-event
+  //   return;
+  // }
 
   if (card.classList.contains('selected')) {
     selectedCards = selectedCards.filter(c => c !== card);
@@ -127,12 +141,23 @@ function handleCardClick(card) {
     card.classList.add('selected');
   }
 
+  if (selectedCards.length === 0) {
+    deselectAllCardsButton.disabled = true;
+  } else {
+    deselectAllCardsButton.disabled = false;
+  }
+
   if (selectedCards.length === 4) {
-    handleSelectedCards();
+    submitFourSelectedCards();
   }
 }
 
-function handleSelectedCards() {
+function deselectAllCards() {
+  selectedCards.forEach(x => x.classList.remove('selected'));
+  selectedCards = [];
+}
+
+function submitFourSelectedCards() {
   const group = selectedCards[0].dataset.group;
   const isCorrect = selectedCards.every(card => card.dataset.group === group);
 
@@ -253,7 +278,7 @@ function hideSplashScreen() {
 }
 
 function scaleFontSizeToCard(card) {
-  const maxFontSize = 16; // Maximum font size in pixels
+  const maxFontSize = window.innerWidth < 700 ? 16 : 22; // Maximum font size in pixels
   const minFontSize = 8; // Minimum font size in pixels
   const charCount = card.textContent.length;
   const newFontSize = Math.max(minFontSize, maxFontSize - charCount / 2);
@@ -261,4 +286,12 @@ function scaleFontSizeToCard(card) {
 }
 
 // Start the first game
-startNewGame();
+function startUp() {
+  let abTestGroup = "a";
+  if (Math.random() < 0.5) {
+    abTestGroup = "b";
+  }
+  startNewGame();
+}
+
+startUp();

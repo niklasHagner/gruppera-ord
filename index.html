@@ -23,24 +23,30 @@
   <body>
     <main>
       <header>
-        <h1>Gruppera 4 ord 🐦‍⬛</h1>
+        <h1>Gruppera 4 ord 
+          <img src="https://i.imgur.com/CGE5JlG.png" alt="logo" style="width: 28px; height: 28px;">
+        </h1>
         <span class="difficulty-level">
           <span style="font-weight: 600;";>LEVEL</span>
-          <span class="difficulty-level-text"></span>
+          <span class="difficulty-level-display"></span>
         </span>
       </header>
 
       <div class="toast" id="toast-top"></div>
       <div class="correct-answers" id="correct-answers"></div>
       <div class="grid-container" id="grid-container"></div>
+      
+      <div class="button-group">
+        <button id="shuffle-cards">🃏 Blanda</button>
+        <button id="deselect-cards" disabled>🃏 Avmarkera</button>
+        <button id="new-game">Ny omgång</button>
+      </div>
+
       <div class="failed-guesses hidden">
         <h2>Felaktiga gissningar</h2>
         <ul class="failed-guesses-text"></ul>
       </div>
-      <div class="button-group">
-        <button id="shuffle-cards">🃏 Blanda korten</button>
-        <button id="new-game">Ny omgång</button>
-      </div>
+
       <br>
 
       <div class="difficulty-selection">

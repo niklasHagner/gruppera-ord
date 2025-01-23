@@ -49,6 +49,10 @@ header {
   h1 {
     color: #eee;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
 }
 
@@ -74,7 +78,7 @@ header {
   width: var(--card-width);
   height: var(--card-width);
   border-radius: 10px;
-  background-color: #fdfbf8; /* Bone white gradient */
+  background-color: #f9ffdf; /* Bone white would be fdfbf8 */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(225, 208, 23, 0.5); /* Subtle shadow effect */
   cursor: pointer;
   user-select: none;
@@ -88,9 +92,12 @@ header {
   }
 
   &.selected {
-    background-color: #264653;
-    color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(23, 18, 38, 0.5); /* Subtle shadow effect */
+    /* background-color: #264653;
+    color: white; */
+    transform: rotate(-2deg);
+    outline: solid 3px #555;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(23, 18, 38, 0.5);
+    background-color: #eee;
   }
 
   &.warn {
@@ -131,25 +138,34 @@ header {
 
 button {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 6px 20px;
   font-size: 1em;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
-  background-color: #333;
+  border-radius: 25px;
+  background-color: #2a9d8f;
   color: white;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
   font-family: "Jost";
+  /* box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); */
 
   @media (hover: hover) {
     &:hover {
-      transform: none;
+      transform: translateY(-3px);
+      box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+      background-color: #29bfae;
     }
   }
 
+  &:disabled {
+    background-color: gray;
+    color: darkgray;
+  }
+
   &:active {
-    transform: scale(0.95);
-    background-color: green;
+    transform: translateY(1px);
+    background-color: #26c6b4;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 }
 
