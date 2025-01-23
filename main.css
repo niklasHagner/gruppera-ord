@@ -160,6 +160,7 @@ button {
 
 .difficulty-selection {
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 
@@ -168,9 +169,24 @@ button {
   }
 
   select {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 4px 4px;
+    border-radius: 2px;
+    border: 1px solid #2a9d8f;
+    background-color: #f9ffdf;
+    color: #333;
+    font-family: "Jost", sans-serif;
+    font-size: 0.7em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+    &:focus {
+      border-color: #29bfae;
+      box-shadow: 0 0 5px rgba(42, 157, 143, 0.5);
+      outline: none;
+    }
+
+    &:hover {
+      border-color: #29bfae;
+    }
   }
 }
 
@@ -195,7 +211,7 @@ button {
 
 @counter-style listemoji {
   system: cyclic;
-  symbols: "🧠";
+  symbols: "😀";
   suffix: " ";
 }
 
@@ -208,8 +224,8 @@ button {
   position: absolute;
   top: 0;  
   right: 0;
-  padding: 0 8px;
-  color: rgba(255,255,255,0.5);
+  padding: 0 12px;
+  color: #eee;
 }
 
 @keyframes appear-animation-1 {
