@@ -3,6 +3,50 @@ window.games = [
     date: "2025-01-01",
     difficulty: 1,
     themes: [
+      {
+        name: "Jul",
+        words: ["Bord", "Gran", "Kalender", "Otta"]
+      },
+      {
+        name: "Tid",
+        words: ["Era", "Ur", "Klocka", "Evighet"]
+      },
+      {
+        name: "Skola",
+        words: ["Penna", "Betyg", "Rast", "Rektor"]
+      },
+      {
+        name: "Teater",
+        words: ["Mask", "Scen", "Akt", "Publik"]
+      },
+    ]
+  },
+  {
+    date: "2025-01-01",
+    difficulty: 1,
+    themes: [
+      {
+        name: "USA-presidenter",
+        words: ["George", "Bill", "Jimmy", "Donald"]
+      },
+      {
+        name: "Bostads-",
+        words: ["Rätt", "Förmedling", "Bidrag", "Marknad"]
+      },
+      {
+        name: "Webbläsare",
+        words: ["Flik", "Bokmärke", "Adress", "Favorit"]
+      },
+      {
+        name: "Elgitarr",
+        words: ["Pedal", "Förstärkare", "Sträng", "Band"]
+      },
+    ]
+  },
+  {
+    date: "2025-01-01",
+    difficulty: 1,
+    themes: [
       { name: "Känslor", words: ["Glad", "Ledsen", "Arg", "Irriterad"] },
       { name: "Färger", words: ["Röd", "Blå", "Grön", "Gul"] },
       { name: "Djur", words: ["Hund", "Katt", "Fågel", "Fisk"] },
@@ -13,10 +57,10 @@ window.games = [
     date: "2025-01-01",
     difficulty: 1,
     themes: [
-      { name: "Känslor", words: ["Lycklig", "Arg", "Lugn", "Frustrerad"] },
-      { name: "Färger", words: ["Lila", "Turkos", "Magenta", "Beige"] },
-      { name: "Djur", words: ["Häst", "Ko", "Får", "Get"] },
-      { name: "Frukter", words: ["Mango", "Persika", "Ananas", "Jordgubbe"] }
+      { name: "Beck", words: ["Gunvald", "Martin", "Polis", "Mördare"] },
+      { name: "Träsorter", words: ["Valnöt", "Ek", "Körsbär", "Lönn"] },
+      { name: "Seinfeld-karaktärer", words: ["Jerry", "Elaine", "George", "Susan"] },
+      { name: "Diktatorer", words: ["Adolf", "Francisco", "Ananas", "Augusto"] }
     ]
   },
   {

@@ -217,20 +217,20 @@ function unescapeGroup(group) {
   return group.replace(/~/g, ' ');
 }
 
-const difficulties = [
-  { key: "x", text: "Slumpat" },
-  { key: "1", text: "Görlätt" },
-  { key: "2", text: "Enkel" },
-  { key: "3", text: "Medel" },
-  { key: "4", text: "Klurig" },
-];
-
 function difficultyKeyToText(key) {
+
+  const difficulties = [
+    { key: "x", text: "Slumpat" },
+    { key: "1", text: "Görlätt" },
+    { key: "2", text: "Enkel" },
+    { key: "3", text: "Medel" },
+    { key: "4", text: "Klurig" },
+  ];
+  
   const keyString = key.toString();
   const difficulty = difficulties.find(x => x.key === keyString);
   return difficulty ? difficulty.text : '';
 }
-
 
 function reshuffleRemainingCards() {
   const remainingCards = Array.from(gridContainer.children);
