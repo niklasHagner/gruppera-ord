@@ -149,7 +149,7 @@ window.games = [
       aggregationsformer: ["Fast", "Flytande", "Gas", "Plasma"],
       stearinljustyper: ["Värme", "Kron", "Block", "Doft"],
       ordbehandling: ["Kopiera", "Klipp", "Klistra", "Radera"],
-      spel: ["Domino", "Schack", "Kalaha", "Jenga"]
+      spel: ["Domino", "Shack", "Kalaha", "Jenga"]
     }
   },
   {
@@ -157,82 +157,8 @@ window.games = [
     themes: {
       filmyrken: ["Producent", "Regissör", "Skådis", "Fotograf"],
       adjektiv: ["Minst", "Flera", "Större", "Gammal"],
-      verb: ["Peta", "Röra", "Kastade", "Vänd"],
-      kött: ["Fågel", "Nöt", "Fläsk", "Vilt"],
+      verb: ["Peta", "Röra", "Kastade", "Vänd"], kött: ["Fågel", "Nöt", "Fläsk", "Vilt"],
     }
   },
-  {
-    difficulty: 4,
-    themes: {
-      "Byggnader på gården": ["Lada", "Loge", "Magasin", "Silo"],
-      "ABBA": ["Björn", "Avatar", "SOS", "Brighton"],
-      "På åkern": ["Korn", "Majs", "Rova", "Beta"],
-      "Alice Tegnérs visor": ["Olle", "Ekorre", "Blåsippa", "Videung"],
-    }
-  },
-  {
-    difficulty: 3,
-    themes: {
-      "På huvudet": ["Tupé", "Diadem", "Papiljott", "Kräfthatt"],
-      "Orter döpta efter personer": ["Dorotea", "Fredrika", "Vilhelmina", "Karlstad"],
-      "På valdagen": ["Skärm", "Kuvert", "Legitimation", "Förrättare"],
-      "Oops!": ["Råka", "Sjabbla", "Missa", "Fumla"],
-    }
-  },
-  {
-    difficulty: 4,
-    themes: {
-      "Låneord från franska": ["Byrå", "Enorm", "Populär", "Maskerad"],
-      "Samma fem bokstäver": ["Paris", "Prisa", "Rispa", "Spira"],
-      "Starkt i glaset": ["Geting", "Nubbe", "Rackabajsare", "Järn"],
-      "Fantasidjur": ["Grip", "Skvader", "Drake", "Basilisk"],
-    }
-  },
-  {
-    difficulty: 3,
-    themes: {
-      "Stockholms blodbad": ["Gamla stan", "Tyrann", "Vasa", "Danmark"],
-      "Första ordet i dokusåpa": ["Paradise", "Big Brother", "Expedition", "Robinson"],
-      "På dåligt humör": ["Grinig", "Sur", "Nere", "Missnöjd"],
-      "På fotbollsplanen": ["Stolpe", "Linje", "Flagga", "Mittpunkt"],
-    }
-  },
-  {
-    difficulty: 4,
-    themes: {
-      "Pastasorter": ["Snäcka", "Fjäril", "Rör", "Skruv"],
-      "Palindrom": ["Kajak", "Aja baja", "DVD", "Kivik"],
-      "Börjar på jul-": ["Afton", "Klapp", "Bord", "Gran"],
-      "Tidningar": ["Filter", "Land", "Vi", "Bamse"],
-    }
-  },
-  {
-    difficulty: 3,
-    themes: {
-      "Att låsa upp teknik med": ["Lösenord", "Ansikte", "Pinkod", "Fingeravtryck"],
-      "Namn från naturen": ["Sten", "Bo", "Löv", "Bäck"],
-      "Filmer med hund": ["Lassie", "Scooby-Doo", "101 dalmatiner", "Saltkråkan"],
-      "Överplagg": ["Duffel", "Kavaj", "Morgonrock", "Anorak"],
-    }
-  },
-  {
-    difficulty: 3,
-    themes: {
-      "Nobelpriset": ["Fysik", "Medicin", "Fred", "Kemi"],
-      "Danser": ["Bolero", "Samba", "Vals", "Polska"],
-      "Fåglar": ["Tärna", "Mes", "Råka", "Trut"],
-      "Programspråk": ["C", "R", "Pascal", "Python"],
-    }
-  },
-  {
-    difficulty: 4,
-    themes: {
-      "Tatueringar": ["Hjärta", "Dödskalle", "Bläck", "Nål"],
-      "Blir platser som slutar på -holm": ["Stock", "Vax", "Drottning", "Box"],
-      "Synonymer till Bar": ["Naken", "Kal", "Ölservering", "Kånkade"],
-      "I Östersjön": ["Åland", "Strömming", "Säl", "Tång"]
-    }
-  },
-
 ];
 
